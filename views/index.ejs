@@ -1,11 +1,64 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+  	<head>
+  		<title>Express Todo-List</title>
+    	<link rel='stylesheet' href='/stylesheets/style.css' />
+    	<link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+  	</head>
+	<body>
+		<div class="container" id="wrapper">
+
+			<div class="row" id="title">
+				<h1>工作項目</h1>
+			</div>
+
+			<div class="row" id="newTaskInput">
+				<form action="./" method="POST" class="form-horizontal">
+					<div class="form-group">
+						<label>新工作</label>
+						<input type="text" class="form-control" name="name" id="newTask" placeholder="新工作">
+					</div>
+					<div class="form-group">
+						<label>記事</label>
+						<input type="text" class="form-control" name="note" id="newTaskNote" placeholder="記事">
+					</div>
+					<button type="submit" class="btn btn-default">新增</button>
+				</form>
+			</div>
+			
+			<div class="row" id="todoList">
+			
+			</div>
+
+
+			<h1>進度中</h1>
+			<div class="list-group" id="progress_box">
+				<% tasks.forEach(function(task) { %>	
+					<% if (!task.done) { %>
+						<div class="list-group-item">
+							<%= task.name %>
+							<%= task.note %>
+							<div class="operations pull-right">
+								<button class="btn btn-primary btn-xs" data-id=<%= task._id %>>完成</button>
+								<button class="btn btn-danger btn-xs" data-id=<%= task._id %>>刪除</button>
+							</div>
+						</div>
+					<% } %>
+				<% }); %>
+			</div>
+
+
+		<div>	
+
+
+
+
+
+
+
+
+		<script src="/javascripts/jquery.min.js"></script>
+		<script src="/javascripts/bootstrap.min.js"></script>
+		<script src="/javascripts/index.js"></script>
+	</body>
 </html>

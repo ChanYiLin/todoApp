@@ -25,7 +25,7 @@ router.get('/', function(req, res, next){
 			createdAt: 'desc'
 		})
 		.
-		exec(function(err, items){
+		exec(function(err, tasks){
 			if (err) console.log(err);
 
 			res.render('index', {
@@ -70,9 +70,9 @@ router.post('/', function(req, res, next){
 router.put('/:id/done', function(req, res, next){
 	var id = req.param.id;
 	Task.findOneAndUpdate({
-		_id: id;
+		_id: id
 	},{
-		done: true;
+		done: true
 	},function(err, task){
 		if(err) console.log(err);
 
@@ -88,9 +88,9 @@ router.put('/:id/done', function(req, res, next){
 router.put('/:id/undone', function(req, res, next){
 	var id = req.param.id;
 	Task.findOneAndUpdate({
-		_id: id;
+		_id: id
 	},{
-		done: false;
+		done: false
 	},function(err, task){
 		if(err) console.log(err);
 		
