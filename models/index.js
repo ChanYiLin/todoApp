@@ -16,10 +16,10 @@ db.once('open', function(callback){
 });
 
 // Require schema
-var taskSchema = require('./task').itemSchema(mongoose);
+var taskSchema = require('./task').taskSchema(mongoose);
 
 // Model class
-var Task = mongoose.model('Task', itemSchema);
+var Task = mongoose.model('Task', taskSchema);
 
 // Exports
 exports.Task = Task;
