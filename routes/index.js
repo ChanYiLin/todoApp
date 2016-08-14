@@ -68,7 +68,7 @@ router.post('/', function(req, res, next){
 	PUT /:id update 
 */
 router.put('/:id/done', function(req, res, next){
-	var id = req.param.id;
+	var id = req.params.id;
 	Task.findOneAndUpdate({
 		_id: id
 	},{
@@ -86,7 +86,7 @@ router.put('/:id/done', function(req, res, next){
 	PUT /:id update 
 */
 router.put('/:id/undone', function(req, res, next){
-	var id = req.param.id;
+	var id = req.params.id;
 	Task.findOneAndUpdate({
 		_id: id
 	},{
@@ -104,7 +104,7 @@ router.put('/:id/undone', function(req, res, next){
 	PUT /:id update 
 */
 router.put('/:id/update', function(req, res, next){
-	var id = req.param.id;
+	var id = req.params.id;
 
 	var note = req.body;
 	Task.findOneAndUpdate({
@@ -122,7 +122,7 @@ router.put('/:id/update', function(req, res, next){
 
 /* Delete /:id delete */
 router.delete('/:id/delete', function(req, res, next){
-	var id = req.param.id;
+	var id = req.params.id;
 
 	Task.findByIdAndRemove(id, function(err){
 		if(err) console.log(err);
